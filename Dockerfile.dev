@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1
+
+FROM node:16
+ENV NODE_ENV=development
+WORKDIR /app
+CMD [ "npm", "run", "start:dev" ]
+
+#build with something like : docker build -f Dockerfile.dev . --tag test123
+#launch with something like : docker run -p 65321:3000 --mount type=bind,source="$(pwd)",target=/app --name node-dev-my-project node-dev-env
+#relaunch with something like : docker ps -a then docker start -a <CONTAINER ID>
